@@ -8,5 +8,5 @@ Our project is an experimentation into the musical knowledge and preferences of 
 
 This project requires the following libraries:
 + boto
-+ pydub
-+ ffmpeg
++ [pydub](https://github.com/jiaaro/pydub/)
++ ffmpeg & libavcodec-extra-53 (available via apt-get)

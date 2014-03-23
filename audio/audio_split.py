@@ -1,16 +1,17 @@
+#!/usr/bin/python
 from pydub import AudioSegment
 
 print "Loading audio files..."
 mars = AudioSegment.from_mp3("original/gustav_holst_the_planets_mars.mp3")
 jupiter = AudioSegment.from_mp3("original/gustav_holst_the_planets_jupiter.mp3")
-#saturn = AudioSegment.from_mp3("original/gustav_holst_the_planets_saturn.mp3")
-#uranus = AudioSegment.from_mp3("original/gustav_holst_the_planets_uranus.mp3")
+saturn = AudioSegment.from_mp3("original/gustav_holst_the_planets_saturn.mp3")
+uranus = AudioSegment.from_mp3("original/gustav_holst_the_planets_uranus.mp3")
 
 def slice_into_bits(song, song_name_str):
 	print ("Splitting " + song_name_str + ", this may take some time...") 
 	last_4_seconds = song[4000:]
 	first_4_seconds = song[:4000]
-	song_length = round(1000 * (mars.frame_count() / mars.frame_rate))
+	song_length = round(1000 * (song.frame_count() / song.frame_rate))
 	
 	#remember, milliseconds
 	for i in range(4000, int(song_length), 4000):
@@ -26,3 +27,5 @@ def slice_into_bits(song, song_name_str):
 
 slice_into_bits(mars, "mars")
 slice_into_bits(jupiter, "jupiter")
+slice_into_bits(saturn, "saturn")
+slice_into_bits(uranus, "uranus")
