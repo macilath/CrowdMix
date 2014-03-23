@@ -13,7 +13,7 @@ if ans == 'Y' or ans == 'y':
 	# ffmpeg & libavcodec-extra-53(apt-get)
 	os.system("sudo apt-get install ffmpeg")
 	os.system("sudo apt-get install libavcodec-extra-53")
-	os.system("sudo apt-get install pip")
+	os.system("sudo apt-get install python-pip")
 	# boto (pip)
 	os.system("sudo pip install boto")
 	# pydub (pip)
@@ -21,6 +21,7 @@ if ans == 'Y' or ans == 'y':
 else: 
 	print ("Okay, skipping that.")
 
+print ("\n")
 # Add AMT credentials
 
 # Add website hostname
