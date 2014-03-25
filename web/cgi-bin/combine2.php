@@ -15,8 +15,50 @@ echo '<!DOCTYPE html>
   <head>
     <meta charset="utf-8">
     <title>Combine 2 Music Clips and Get Paid!</title>
-    <!-- <link rel="stylesheet" href="style.css"> -->
-    <!-- <script src="script.js"></script> -->
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <style type="text/css">
+      body {
+        padding-top: 20px;
+        padding-bottom: 40px;
+      }
+
+      /* Custom container */
+      .container-narrow {
+        margin: 0 auto;
+        max-width: 700px;
+      }
+      .container-narrow > hr {
+        margin: 30px 0;
+      }
+
+      /* Main marketing message and sign up button */
+      .jumbotron {
+        margin: 60px 0;
+        text-align: center;
+      }
+      .jumbotron h1 {
+        font-size: 72px;
+        line-height: 1;
+      }
+      .jumbotron .btn {
+        font-size: 21px;
+        padding: 14px 24px;
+      }
+
+      /* Supporting marketing content */
+      .marketing {
+        margin: 60px 0;
+      }
+      .marketing p + h4 {
+        margin-top: 28px;
+      }
+    </style>
+    <link href="../bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="../bootstrap/assets/js/html5shiv.js"></script>
+    <![endif]-->
   </head>
   <body>
     <!-- temp TODO remove -->
@@ -29,11 +71,15 @@ echo '<!DOCTYPE html>
     <p>TODO: (important) UI for the \'Get your code\' page.</p><br>
     <p>TODO: (important) Fix the formula for calculating which radio button choices correspond to which piece.</p><br>
     <p>TODO: (important?) Add the functionality that prevents choosing > 5 min. length songs.</p><br>
+    
     <!-- instructions -->
+    <div align="center">
     <h1>Instructions</h1>
     <p> - Put task instructions here + say which browsers are supported <br>HTML5 is required</p>
-    <br>
+    </div>
+    
     <!-- Music Clips -->
+    <div align="center">
     <h2>Music Clips</h2><br>
     <p>Music Clip A: <br>
     <audio controls>
@@ -66,7 +112,11 @@ echo $song4;
 echo '" type="audio/mpeg">
       Your browser does not support this audio format.
     </audio>
-    <br>
+    </div>
+    
+    <div class="row-fluid marketing">
+    
+    <div class="span6">
     <!-- Music Clip selection boxes -->
     <form action="combine2.php" method="POST" /> 
     <h2>My Selection for the First Music Clip</h2><br>
@@ -74,12 +124,17 @@ echo '" type="audio/mpeg">
     <input type="radio" name="group1" value="1"> B<br>
     <input type="radio" name="group1" value="2"> C<br>
     <input type="radio" name="group1" value="3"> D<br>
-    <br>
+    </div>
+
+    <div class="span6">
     <h2>My Selection for the Second Music Clip</h2><br>
     <input type="radio" name="group2" value="0" checked> A<br>
     <input type="radio" name="group2" value="1"> B<br>
     <input type="radio" name="group2" value="2"> C<br>
-    <input type="radio" name="group2" value="3"> D<br>';
+    <input type="radio" name="group2" value="3"> D<br>
+    </div>
+    
+    </div>';
 echo "    <input type=\"hidden\" name=\"0\" value=\"".$_POST['0']."\" />
     <input type=\"hidden\" name=\"1\" value=\"".$_POST['1']."\" />
     <input type=\"hidden\" name=\"2\" value=\"".$_POST['2']."\" />
@@ -100,22 +155,46 @@ echo "    <input type=\"hidden\" name=\"0\" value=\"".$_POST['0']."\" />
     <input type=\"hidden\" name=\"13\" value=\"".$_POST['17']."\" />
     <input type=\"hidden\" name=\"14\" value=\"".$_POST['18']."\" />
     <input type=\"hidden\" name=\"15\" value=\"".$_POST['19']."\" />
+    <div class=\"jumbotron\">
     ";
-echo '    <input type="submit" value="Load My New Choice" />
+echo '    <input class="btn btn-large btn-success" type="submit" value="Load My New Choice" />
+    </div>
     </form>
+    
     <!-- combined Music Clip player -->
-    <h2>Combined Music Clip - Not implemented yet</h2><br>
+    <div align="center">
+    <h2>Combined Music Clip - Need to debug indexing</h2><br>
     <audio controls>
       <source src="';
 echo $current_combo;
 echo '" type="audio/mpeg">
       Your browser does not support this audio format.
     </audio>
-    <br>
+    </div>
+    
     <!-- submit button -->
-    <form action="" method="POST">
-    <input type="submit" value="Submit My Decision and Get My Code!" /> 
+    <form action="save-choice.php" method="POST">
+      <input type="hidden" name="choice_made" value="';
+echo $current_combo;
+echo '" />
+    <div class="jumbotron">
+    <input class="btn btn-large btn-success" type="Submit" value="Submit My Decision and Get My Code!" /> 
+    </div>
     </form>
+        <!-- Javascript that makes the CSS work -->
+    <script src="../bootstrap/assets/js/jquery.js"></script>
+    <script src="../bootstrap/assets/js/bootstrap-transition.js"></script>
+    <script src="../bootstrap/assets/js/bootstrap-alert.js"></script>
+    <script src="../bootstrap/assets/js/bootstrap-modal.js"></script>
+    <script src="../bootstrap/assets/js/bootstrap-dropdown.js"></script>
+    <script src="../bootstrap/assets/js/bootstrap-scrollspy.js"></script>
+    <script src="../bootstrap/assets/js/bootstrap-tab.js"></script>
+    <script src="../bootstrap/assets/js/bootstrap-tooltip.js"></script>
+    <script src="../bootstrap/assets/js/bootstrap-popover.js"></script>
+    <script src="../bootstrap/assets/js/bootstrap-button.js"></script>
+    <script src="../bootstrap/assets/js/bootstrap-collapse.js"></script>
+    <script src="../bootstrap/assets/js/bootstrap-carousel.js"></script>
+    <script src="../bootstrap/assets/js/bootstrap-typeahead.js"></script>
   </body>
 </html>';
 ?>

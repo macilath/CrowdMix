@@ -75,11 +75,46 @@ print """\
   <head>
     <meta charset="utf-8">
     <title>Welcome!</title>
-    <!-- <link rel="stylesheet" href="style.css"> -->
-    <!-- <script src="script.js"></script> -->
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <style type="text/css">
+      body {
+        padding-top: 20px;
+        padding-bottom: 40px;
+      }
+
+      /* Main marketing message and sign up button */
+      .jumbotron {
+        margin: 60px 0;
+        text-align: center;
+      }
+      .jumbotron h1 {
+        font-size: 72px;
+        line-height: 1;
+      }
+      .jumbotron .btn {
+        font-size: 21px;
+        padding: 14px 24px;
+      }
+
+      /* Supporting marketing content */
+      .marketing {
+        margin: 60px 0;
+      }
+      .marketing p + h4 {
+        margin-top: 28px;
+      }
+    </style>
+    <link href="../bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="../bootstrap/assets/js/html5shiv.js"></script>
+    <![endif]-->
   </head>
   <body>
+    <div class="jumbotron">
     <h1>Welcome!</h1>
+    <p class="lead">This website requires HTML5 and javascript. If you have problems try updating or switching browsers.</p>
     <form action="combine2.php" method="POST" /> """
 
 #add a ton of hidden fields to this form which was the whole point of this page
@@ -89,8 +124,23 @@ for i, v in enumerate(FILES + COMBINED_FILES):
 print """\
       <input type="hidden" name="group1" value="0">
       <input type="hidden" name="group2" value="0">
-      <input type="Submit" value="Get Started" />
+      <input class="btn btn-large btn-success" type="Submit" value="Get Started" />
     </form>
+    </div>
+    <!-- Javascript that makes the CSS work -->
+    <script src="../bootstrap/assets/js/jquery.js"></script>
+    <script src="../bootstrap/assets/js/bootstrap-transition.js"></script>
+    <script src="../bootstrap/assets/js/bootstrap-alert.js"></script>
+    <script src="../bootstrap/assets/js/bootstrap-modal.js"></script>
+    <script src="../bootstrap/assets/js/bootstrap-dropdown.js"></script>
+    <script src="../bootstrap/assets/js/bootstrap-scrollspy.js"></script>
+    <script src="../bootstrap/assets/js/bootstrap-tab.js"></script>
+    <script src="../bootstrap/assets/js/bootstrap-tooltip.js"></script>
+    <script src="../bootstrap/assets/js/bootstrap-popover.js"></script>
+    <script src="../bootstrap/assets/js/bootstrap-button.js"></script>
+    <script src="../bootstrap/assets/js/bootstrap-collapse.js"></script>
+    <script src="../bootstrap/assets/js/bootstrap-carousel.js"></script>
+    <script src="../bootstrap/assets/js/bootstrap-typeahead.js"></script>
   </body>
 </html>
 """
