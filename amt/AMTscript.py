@@ -5,7 +5,8 @@ import time
 ACCESS_ID = ''
 SECRET_KEY = ''
 HOST = 'mechanicalturk.sandbox.amazonaws.com'
- 
+
+# this mtc is used for creating the HIT
 mtc = MTurkConnection(aws_access_key_id=ACCESS_ID,
                       aws_secret_access_key=SECRET_KEY,
                       host=HOST)
@@ -16,10 +17,14 @@ description = ('Help remix a classical music composition '
 keywords = 'music, create, easy, fast'
 max_assignments = 2
 
+# acceptable codes that will ge the turker paid
 payCodes = ['CG6H5', 'X38T1', 'S1W59', 'D2K9K', 
             'DCURP', 'KJHCY', 'KSSIZ', 'YYLMB', 
             '47NQK', 'WILIM']
 
+#-------------- WAIT FUNCTION ----------------------------
+
+# wait timer function since time.sleep() was giving issues
 def wait(time_lapse):
   time_start = time.time()
   time_end = (time_start + time_lapse)
@@ -27,6 +32,7 @@ def wait(time_lapse):
   while time_end > time.time():
     pass
 
+# this mtc is used for data retrieval
 mtc2 = MTurkConnection(aws_access_key_id=ACCESS_ID,
                       aws_secret_access_key=SECRET_KEY,
                       host=HOST)
@@ -101,6 +107,7 @@ mtc.create_hit(questions=question_form,
                reward = 0.05)
 
 #--------------- WAIT FOR ASSIGNMENTS TO COMPLETE ----------
+#-------------------- AND REVIEW ASSIGNMENTS ---------------
 
 hits = get_all_reviewable_hits(mtc2)
 hitReviewed = False;
@@ -129,12 +136,15 @@ while True:
               mtc2.reject_assignment(assignment.AssignmentId, feedback = 'Invalid code.') 
         print "--------------------"
       
+      # the hit stays enabled in case a turker is rejected, however they should have been approved
+      # this should hopefully never happen
       ##mtc2.disable_hit(hit.HITId)
       hitReviewed = True;
 
-  if hitReviewed:
+  if hitReviewed: # since I know that I only submit one HIT, I quit after one HIT is reviewed
     break;
-  else:
+  else: # wait 30 seconds so that Amazon does not get mad
     wait(30)
 
-print "All assignments have been reviewed!"
+print "All assignments have been reviewed!\n"
+print "Program has been terminated!"
