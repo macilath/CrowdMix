@@ -7,6 +7,7 @@ Our project is an experimentation into the musical knowledge and preferences of 
 
 
 Built on Python 2.7.6
+
 This project requires the following libraries:
 + [boto](https://github.com/boto/boto)
 + [pydub](https://github.com/jiaaro/pydub/)

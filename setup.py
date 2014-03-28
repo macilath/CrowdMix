@@ -11,8 +11,8 @@ print ("Do you want CrowdMix to install these dependencies? (You will need to be
 ans = raw_input('[Y/N]: ')
 if ans == 'Y' or ans == 'y':
 	# ffmpeg & libavcodec-extra-53(apt-get)
-	os.system("sudo apt-get install ffmpeg")
-	os.system("sudo apt-get install libavcodec-extra-53")
+#	os.system("sudo apt-get install ffmpeg")
+#	os.system("sudo apt-get install libavcodec-extra-53")
 	os.system("sudo apt-get install python-pip")
 	# boto (pip)
 	os.system("sudo pip install boto")

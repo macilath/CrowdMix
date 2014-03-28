@@ -15,8 +15,8 @@ primary_file = args.primary
 add_on_file = args.addon
 
 # Load audio files
-base_audio = AudioSegment.from_mp3(primary_file)
-add_on_audio = AudioSegment.from_mp3(add_on_file)
+base_audio = AudioSegment.from_wav(primary_file)
+add_on_audio = AudioSegment.from_wav(add_on_file)
 
 # TODO: Determine optimal crossfading
 result_song = base_audio.append(add_on_audio, crossfade=2000)
@@ -25,8 +25,8 @@ result_song = base_audio.append(add_on_audio, crossfade=2000)
 song_length = round(1000 * (result_song.frame_count() / result_song.frame_rate))
 if song_length > 300000:
 	print ("Finishing song...")
-	result_song.export("final/final_song.mp3", format="mp3")
+	result_song.export("final/final_song.wav", format="wav")
 	print ("Final song located in final/ directory")
 else:
-	result_song.export("bits/building.mp3", format="mp3")
+	result_song.export("bits/building.wav", format="wav")
 	print ("Not finished yet. Keep adding on.")
