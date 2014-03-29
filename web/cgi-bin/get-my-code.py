@@ -1,8 +1,29 @@
 #!/usr/bin/env python
 
-# ---------------Insert python code gen stuff here
+import audio_join
+import random
+import cgi
+import os
+import cgitb; cgitb.enable()  # for troubleshooting - TODO disable during deployment. showing your internals is a major security flaw
 
-code = "FILL IN THIS VAR WITH YOUR CODE GEN SCRIPT RESULT"
+def deleteIfThere(file):
+ 	if os.path.isfile(file):
+		os.remove(file)
+
+form = cgi.FieldStorage()
+
+#--------Saving the result
+choice_made = form.getvalue("choice_made")
+audio_join.finalize(choice_made)
+
+#--------Delete all the temp files
+for i in range(20):
+	deleteIfThere(form.getvalue(str(i)))
+
+# ---------------Code Gen - give them one from a pre-selected set
+
+codeset = ["CG6H5","X38T1","S1W59","D2K9K","DCURP","KJHCY","KSSIZ","YYLMB","47NQK","WILIM"]
+code = random.choice(codeset)
 
 #----------------------------------HTML GEN
 print "Content-Type: text/html"
@@ -20,7 +41,7 @@ print """\
     <h1>Your code is:"""
 print code
 print """</h1>
-      <p>More instructions go here - tell them to go back to the turk page & fill it in to get credit</p>
+      <p>You're done! Now, go back to Amazon mechanical turk to claim your reward!</p>
     </div>
   </body>
 </html>
