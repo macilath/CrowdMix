@@ -16,4 +16,4 @@ This project requires the following libraries:
 In order to create the HIT, use the Python script 'AMTscript.py' in the 'amt' directory. This script should wait for the HIT to be reviewable, and then accept or reject accordingly. If for some reason the script is interrupted and closes early, run 'AMTpay.py' in the 'amt' directory. 
 
 ### Website
-Our system uses a website/webserver to handle everything a turker does during their assignment. The files in the 'web' directory will need to be added to your own webserver that has CGI and Python enabled. The index of the webpage will be at '/cgi-bin/welcome.py'.
+Our system uses a website/webserver to handle everything a turker does during their assignment. The files in the 'web' directory will need to be added to your own webserver that has CGI and Python enabled. The index of the webpage will be at '/cgi-bin/welcome.py'. You can also view the site at www.crowdmix.net/cgi-bin/welcome.py.
