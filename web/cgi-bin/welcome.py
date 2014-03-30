@@ -6,7 +6,7 @@ import random
 import string
 
 import cgi
-import cgitb; cgitb.enable()  # for troubleshooting, TODO rm during deployment, major security flaw
+#import cgitb; cgitb.enable()  # for troubleshooting, TODO rm during deployment, major security flaw
 
 import audio_join
 
@@ -118,7 +118,7 @@ print """\
   </head>
   <body>
     <div class="jumbotron">
-    <h1>Welcome!</h1>
+    <h1>Welcome to CrowdMix!</h1>
     <p class="lead">This website requires HTML5 and javascript. If you have problems try updating or switching browsers.</p>
     <form action="../combine2.php" method="POST" /> """
 
@@ -129,6 +129,7 @@ for i, v in enumerate(FILES + COMBINED_FILES):
 print """\
       <input type="hidden" name="group1" value="0">
       <input type="hidden" name="group2" value="0">
+      <input type="hidden" name="reload_count" value="4">
       <input class="btn btn-large btn-success" type="Submit" value="Get Started" />
     </form>
     </div>
