@@ -21,7 +21,7 @@ def joinWAV(primary_file, add_on_file, rslt_path):
   base_audio = AudioSegment.from_wav(primary_file)
   add_on_audio = AudioSegment.from_wav(add_on_file)
 # TODO: Determine optimal crossfading
-  result_song = base_audio.append(add_on_audio, crossfade=2000)
+  result_song = base_audio.append(add_on_audio, crossfade=1000)
   result_song.export(rslt_path, format="wav")
 
 def finalize(filepath):
