@@ -1,4 +1,4 @@
-Running version @ allekant.com/cgi-bin/welcome.py
+Running version @ crowdmix.net/cgi-bin/welcome.py
 ---
 The first off site page is
 
@@ -8,4 +8,4 @@ we'll need to create a link from the turk website to there.
 
 welcome.py takes you to combine2.php
 
-combine2.php either reloads or takes you to the as of yet unmade getyourcode.php
+combine2.php either reloads or takes you to the as of yet unmade getyourcode.php 
