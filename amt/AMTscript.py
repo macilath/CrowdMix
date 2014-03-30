@@ -1,10 +1,20 @@
+# This is the main AMT script that should be executed and will do the following:
+#   * Create a HIT
+#   * Wait for the HIT to become reviewable
+#   * Process assignments once the HIT is reviewable
+#       * Check whether their input code is one that we gave them. 
+#       * If yes, pay them, if not, reject them.
+
+# NOTE: Should this script close before all assignments are reviewed, please run 'AMTpay.py'
+# NOTE: Fill in your AWS keys in 'ACCESS_KEY' and 'SECRET_KEY'
+
 from boto.mturk.connection import MTurkConnection, HIT
 from boto.mturk.question import SimpleField,QuestionContent,Question,QuestionForm,Overview,AnswerSpecification,SelectionAnswer,FormattedContent,FreeTextAnswer
 import time
  
 ACCESS_ID = ''
 SECRET_KEY = ''
-HOST = 'mechanicalturk.sandbox.amazonaws.com'
+HOST = 'mechanicalturk.amazonaws.com'
 
 # this mtc is used for creating the HIT
 mtc = MTurkConnection(aws_access_key_id=ACCESS_ID,
@@ -15,7 +25,7 @@ title = 'CrowdMix: Remix a Classical Composition'
 description = ('Help remix a classical music composition '
                'by choosing the next sound bits! Simple, easy, and fast!')
 keywords = 'music, create, easy, fast'
-max_assignments = 2
+max_assignments = 50
 
 # acceptable codes that will ge the turker paid
 payCodes = ['CG6H5', 'X38T1', 'S1W59', 'D2K9K', 
@@ -104,7 +114,7 @@ mtc.create_hit(questions=question_form,
                description = description,
                keywords = keywords,
                duration = 60*5,
-               reward = 0.05)
+               reward = 0.25)
 
 #--------------- WAIT FOR ASSIGNMENTS TO COMPLETE ----------
 #-------------------- AND REVIEW ASSIGNMENTS ---------------
