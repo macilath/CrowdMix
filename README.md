@@ -1,5 +1,5 @@
 # CrowdMix
-
+Nicholas McHenry, Stephen Ten Eyck, Clayton Crawford
 
 ## Where Turkers Mix Things Up
 
